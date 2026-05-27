@@ -13,7 +13,7 @@ export default function Nav() {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-12 py-6 transition-all duration-300 ${
+      className={`fixed top-0 left-0 right-0 z-50 flex justify-between items-center px-12 py-0 -mt-7 transition-all duration-300 ${
         scrolled
           ? "bg-dark/90 backdrop-blur-md border-b border-white/10"
           : "bg-transparent"
@@ -23,8 +23,8 @@ export default function Nav() {
         <Image
           src="/mainlogo.png"
           alt="Reach.golf"
-          width={250}
-          height={40}
+          width={300}
+          height={65}
           className="object-contain"
         />
       </a>
