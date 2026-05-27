@@ -23,7 +23,7 @@ export default function Nav() {
         <Image
           src="/mainlogo.png"
           alt="Reach.golf"
-          width={180}
+          width={250}
           height={40}
           className="object-contain"
         />
