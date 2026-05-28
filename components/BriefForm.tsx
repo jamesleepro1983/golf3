@@ -15,7 +15,7 @@ const golferTypes = ['Beginner','Mid handicap','Low handicap','Ladies','Junior',
 const platforms = ['Instagram','TikTok','YouTube','Facebook','Any / open']
 
 function SectionTag({ children }: { children: string }) {
-  return <p className="text-[0.62rem] tracking-[0.2em] uppercase text-offwhite/45 mb-3 block">{children}</p>
+  return <p className="text-[0.62rem] tracking-[0.2em] uppercase text-dark/55 mb-3 block">{children}</p>
 }
 
 function PillGroup({ items, selected, onToggle }: { items: string[], selected: string[], onToggle: (v: string) => void }) {
@@ -29,7 +29,7 @@ function PillGroup({ items, selected, onToggle }: { items: string[], selected: s
           className={`px-4 py-2 text-sm font-light border transition-all ${
             selected.includes(item)
               ? 'border-coral text-coral bg-coral/10'
-              : 'border-white/20 text-offwhite/70 hover:border-coral/60 hover:text-offwhite'
+              : 'border-dark/15 text-dark/70 hover:border-coral hover:text-dark'
           }`}
         >
           {item}
@@ -42,14 +42,14 @@ function PillGroup({ items, selected, onToggle }: { items: string[], selected: s
 function Field({ label, children }: { label: string, children: React.ReactNode }) {
   return (
     <div className="mb-6">
-      <label className="block text-[0.62rem] tracking-[0.2em] uppercase text-offwhite/55 mb-2">{label}</label>
+      <label className="block text-[0.62rem] tracking-[0.2em] uppercase text-dark/60 mb-2">{label}</label>
       {children}
     </div>
   )
 }
 
-const inputCls = "w-full bg-white/[0.03] border border-white/15 rounded-sm px-4 py-3 text-base text-offwhite font-light placeholder-offwhite/30 focus:outline-none focus:border-coral focus:bg-white/[0.05] transition-colors"
-const selectCls = "w-full bg-white/[0.03] border border-white/15 rounded-sm px-4 py-3 text-base text-offwhite/85 font-light focus:outline-none focus:border-coral focus:bg-white/[0.05] transition-colors appearance-none cursor-pointer"
+const inputCls = "w-full bg-white border border-dark/15 rounded-sm px-4 py-3 text-base text-dark font-light placeholder-dark/35 focus:outline-none focus:border-coral transition-colors"
+const selectCls = "w-full bg-white border border-dark/15 rounded-sm px-4 py-3 text-base text-dark/85 font-light focus:outline-none focus:border-coral transition-colors appearance-none cursor-pointer"
 
 export default function BriefForm() {
   const [track, setTrack] = useState<Track>(null)
@@ -165,15 +165,15 @@ export default function BriefForm() {
     </div>
   )
 
-  const navBtnBack = "text-xs tracking-widest uppercase text-offwhite/45 hover:text-offwhite transition-colors"
-  const navBtnNext = "text-xs font-semibold tracking-widest uppercase bg-coral text-dark px-8 py-4 hover:bg-coral-light transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
+  const navBtnBack = "text-xs tracking-widest uppercase text-dark/55 hover:text-dark transition-colors disabled:opacity-50"
+  const navBtnNext = "text-xs font-semibold tracking-widest uppercase bg-coral text-offwhite px-8 py-4 hover:bg-coral-light transition-colors disabled:opacity-50 disabled:cursor-not-allowed"
 
   return (
-    <section id="brief" className="px-6 md:px-12 py-24 md:py-28">
+    <section id="brief" className="px-6 md:px-12 pt-14 md:pt-16 pb-24 md:pb-28">
       {/* Header */}
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-12 md:gap-28 items-start mb-12 md:mb-16">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 md:gap-28 items-start mb-10">
         <div>
-          <p className="flex items-center gap-3 text-coral text-xs font-medium tracking-[0.24em] uppercase mb-6">
+          <p className="flex items-center gap-3 text-coral text-xs font-medium tracking-[0.24em] uppercase mb-5">
             <span className="inline-block w-5 h-px bg-coral" />
             Get started
           </p>
@@ -186,24 +186,24 @@ export default function BriefForm() {
         </p>
       </div>
 
-      {/* Form panel — lifted off the page so it stands out */}
-      <div className="max-w-5xl mx-auto bg-white/[0.025] border border-white/10 rounded-sm p-6 md:p-12">
+      {/* Form panel — cream card on dark page for maximum contrast */}
+      <div className="max-w-5xl mx-auto bg-offwhite text-dark border border-coral/20 rounded-sm shadow-2xl shadow-coral/5 p-6 md:p-12 ring-1 ring-coral/10">
         {/* Progress bar */}
-        <div className="mb-3 h-px bg-white/10">
+        <div className="mb-3 h-px bg-dark/10">
           <div className="h-full bg-coral transition-all duration-300" style={{ width: `${progress}%` }} />
         </div>
-        <p className="text-[0.65rem] tracking-[0.2em] uppercase text-offwhite/45 mb-10 min-h-[1rem]">
-          {step > 0 && step < totalSteps ? `Step ${step} of ${totalSteps}` : ' '}
+        <p className="text-[0.65rem] tracking-[0.2em] uppercase text-dark/45 mb-10 min-h-[1rem]">
+          {step > 0 && step < totalSteps ? `Step ${step} of ${totalSteps}` : ' '}
         </p>
 
         {/* Step 0: Track select */}
         {step === 0 && (
           <div>
             <span className="text-[0.65rem] tracking-[0.22em] uppercase text-coral font-medium block mb-3">First things first</span>
-            <h3 className="font-playfair font-black leading-tight tracking-tight mb-3" style={{ fontSize: 'clamp(1.8rem,3vw,2.8rem)' }}>
-              I am a <em className="text-offwhite/55">golf...</em>
+            <h3 className="font-playfair font-black leading-tight tracking-tight mb-3 text-dark" style={{ fontSize: 'clamp(1.8rem,3vw,2.8rem)' }}>
+              I am a <em className="text-dark/45">golf...</em>
             </h3>
-            <p className="text-offwhite/60 font-light leading-relaxed mb-10 text-base">Select which best describes you — the form adapts from here.</p>
+            <p className="text-dark/60 font-light leading-relaxed mb-10 text-base">Select which best describes you — the form adapts from here.</p>
             <div className="grid grid-cols-1 md:grid-cols-2 gap-4 mb-10">
               {[
                 { val: 'club' as Track, title: 'Club / Venue', sub: 'Promoting your course, facilities or membership' },
@@ -216,11 +216,11 @@ export default function BriefForm() {
                   className={`p-7 text-left border-2 transition-all ${
                     track === opt.val
                       ? 'border-coral bg-coral/10'
-                      : 'border-white/15 hover:border-coral/60 hover:bg-white/[0.02]'
+                      : 'border-dark/15 hover:border-coral hover:bg-coral/[0.04]'
                   }`}
                 >
-                  <div className="text-base font-medium text-offwhite mb-2">{opt.title}</div>
-                  <div className="text-sm text-offwhite/55 font-light leading-snug">{opt.sub}</div>
+                  <div className="text-base font-medium text-dark mb-2">{opt.title}</div>
+                  <div className="text-sm text-dark/60 font-light leading-snug">{opt.sub}</div>
                 </button>
               ))}
             </div>
@@ -236,10 +236,10 @@ export default function BriefForm() {
         {step === 1 && (
           <div className="max-w-2xl">
             <StepTag n={1} label="About you" />
-            <h3 className="font-playfair font-black leading-tight tracking-tight mb-3" style={{ fontSize: 'clamp(1.8rem,3vw,2.8rem)' }}>
-              Your <em className="text-offwhite/55">details.</em>
+            <h3 className="font-playfair font-black leading-tight tracking-tight mb-3 text-dark" style={{ fontSize: 'clamp(1.8rem,3vw,2.8rem)' }}>
+              Your <em className="text-dark/45">details.</em>
             </h3>
-            <p className="text-offwhite/60 font-light mb-10 text-base">So we know who to send your influencer options to.</p>
+            <p className="text-dark/60 font-light mb-10 text-base">So we know who to send your influencer options to.</p>
             <Field label="Your name *">
               <input type="text" value={name} onChange={e => setName(e.target.value)} placeholder="James Smith" className={inputCls} />
             </Field>
@@ -257,7 +257,7 @@ export default function BriefForm() {
             <Field label="Location">
               <input type="text" value={location} onChange={e => setLocation(e.target.value)} placeholder="Town / County" className={inputCls} />
             </Field>
-            <div className="flex justify-between items-center mt-10 pt-8 border-t border-white/10">
+            <div className="flex justify-between items-center mt-10 pt-8 border-t border-dark/10">
               <button type="button" onClick={back} className={navBtnBack}>&larr; Back</button>
               <button type="button" onClick={next} className={navBtnNext}>Continue &rarr;</button>
             </div>
@@ -268,17 +268,17 @@ export default function BriefForm() {
         {step === 2 && track === 'club' && (
           <div>
             <StepTag n={2} label="What to promote" />
-            <h3 className="font-playfair font-black leading-tight tracking-tight mb-3" style={{ fontSize: 'clamp(1.8rem,3vw,2.8rem)' }}>
-              What are you <em className="text-offwhite/55">promoting?</em>
+            <h3 className="font-playfair font-black leading-tight tracking-tight mb-3 text-dark" style={{ fontSize: 'clamp(1.8rem,3vw,2.8rem)' }}>
+              What are you <em className="text-dark/45">promoting?</em>
             </h3>
-            <p className="text-offwhite/60 font-light mb-10 text-base">Select everything that applies — we use this to match you with the right creators.</p>
+            <p className="text-dark/60 font-light mb-10 text-base">Select everything that applies — we use this to match you with the right creators.</p>
             {clubPromoteGroups.map(group => (
               <div key={group.label}>
                 <SectionTag>{group.label}</SectionTag>
                 <PillGroup items={group.items} selected={clubItems} onToggle={v => toggleItem(clubItems, setClubItems, v)} />
               </div>
             ))}
-            <div className="flex justify-between items-center mt-10 pt-8 border-t border-white/10">
+            <div className="flex justify-between items-center mt-10 pt-8 border-t border-dark/10">
               <button type="button" onClick={back} className={navBtnBack}>&larr; Back</button>
               <button type="button" onClick={next} className={navBtnNext}>Continue &rarr;</button>
             </div>
@@ -289,10 +289,10 @@ export default function BriefForm() {
         {step === 2 && track === 'brand' && (
           <div>
             <StepTag n={2} label="Your product" />
-            <h3 className="font-playfair font-black leading-tight tracking-tight mb-3" style={{ fontSize: 'clamp(1.8rem,3vw,2.8rem)' }}>
-              What are you <em className="text-offwhite/55">promoting?</em>
+            <h3 className="font-playfair font-black leading-tight tracking-tight mb-3 text-dark" style={{ fontSize: 'clamp(1.8rem,3vw,2.8rem)' }}>
+              What are you <em className="text-dark/45">promoting?</em>
             </h3>
-            <p className="text-offwhite/60 font-light mb-10 text-base">Tell us about your product and the type of content you&apos;re looking for.</p>
+            <p className="text-dark/60 font-light mb-10 text-base">Tell us about your product and the type of content you&apos;re looking for.</p>
             <Field label="Product or service *">
               <input type="text" value={productService} onChange={e => setProductService(e.target.value)} placeholder="e.g. New irons range, GPS watch, polo shirt collection..." className={inputCls} />
             </Field>
@@ -309,7 +309,7 @@ export default function BriefForm() {
                 <option>Open to discussion</option>
               </select>
             </Field>
-            <div className="flex justify-between items-center mt-10 pt-8 border-t border-white/10">
+            <div className="flex justify-between items-center mt-10 pt-8 border-t border-dark/10">
               <button type="button" onClick={back} className={navBtnBack}>&larr; Back</button>
               <button type="button" onClick={next} className={navBtnNext}>Continue &rarr;</button>
             </div>
@@ -320,10 +320,10 @@ export default function BriefForm() {
         {step === 3 && (
           <div>
             <StepTag n={3} label="Campaign details" />
-            <h3 className="font-playfair font-black leading-tight tracking-tight mb-3" style={{ fontSize: 'clamp(1.8rem,3vw,2.8rem)' }}>
-              Budget &amp; <em className="text-offwhite/55">timing.</em>
+            <h3 className="font-playfair font-black leading-tight tracking-tight mb-3 text-dark" style={{ fontSize: 'clamp(1.8rem,3vw,2.8rem)' }}>
+              Budget &amp; <em className="text-dark/45">timing.</em>
             </h3>
-            <p className="text-offwhite/60 font-light mb-10 text-base">Help us find influencers at the right price point for your campaign.</p>
+            <p className="text-dark/60 font-light mb-10 text-base">Help us find influencers at the right price point for your campaign.</p>
             <SectionTag>Preferred platform</SectionTag>
             <PillGroup items={platforms} selected={selectedPlatforms} onToggle={v => toggleItem(selectedPlatforms, setSelectedPlatforms, v)} />
             <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
@@ -358,14 +358,14 @@ export default function BriefForm() {
             </div>
             <Field label="Anything else we should know?">
               <textarea value={notes} onChange={e => setNotes(e.target.value)} placeholder="Any specific ideas, requirements, or questions..." rows={4}
-                className="w-full bg-white/[0.03] border border-white/15 rounded-sm px-4 py-3 text-base text-offwhite font-light placeholder-offwhite/30 focus:outline-none focus:border-coral focus:bg-white/[0.05] transition-colors resize-none leading-relaxed" />
+                className="w-full bg-white border border-dark/15 rounded-sm px-4 py-3 text-base text-dark font-light placeholder-dark/35 focus:outline-none focus:border-coral transition-colors resize-none leading-relaxed" />
             </Field>
 
             {submitError && (
               <p className="text-coral text-sm mt-4 mb-2">{submitError}</p>
             )}
 
-            <div className="flex justify-between items-center mt-10 pt-8 border-t border-white/10">
+            <div className="flex justify-between items-center mt-10 pt-8 border-t border-dark/10">
               <button type="button" onClick={back} disabled={submitting} className={navBtnBack}>&larr; Back</button>
               <button type="button" onClick={submitBrief} disabled={submitting} className={navBtnNext}>
                 {submitting ? 'Sending…' : 'Send my brief →'}
@@ -378,10 +378,10 @@ export default function BriefForm() {
         {step === 4 && (
           <div className="py-12 md:py-16">
             <span className="text-[0.65rem] tracking-[0.22em] uppercase text-coral font-medium block mb-4">You&apos;re all set</span>
-            <h3 className="font-playfair font-black leading-none tracking-tight mb-5" style={{ fontSize: 'clamp(2.5rem,6vw,5rem)' }}>
+            <h3 className="font-playfair font-black leading-none tracking-tight mb-5 text-dark" style={{ fontSize: 'clamp(2.5rem,6vw,5rem)' }}>
               Brief<br />received.
             </h3>
-            <p className="text-offwhite/65 font-light leading-[1.85] max-w-md" style={{ fontSize: '1rem' }}>
+            <p className="text-dark/65 font-light leading-[1.85] max-w-md" style={{ fontSize: '1rem' }}>
               We&apos;ll be in touch within 48 hours with a curated shortlist of golf influencers — complete with audience stats and clear pricing. Keep an eye on your inbox.
             </p>
           </div>
