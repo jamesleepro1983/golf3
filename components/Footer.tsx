@@ -5,7 +5,7 @@ export default function Footer() {
         Reach<span className="text-coral italic">.golf</span>
       </div>
       <div className="flex flex-wrap gap-8">
-        {[['How it works','#how'],['Who it\'s for','#who'],['Submit a brief','#brief'],['hello@reach.golf','mailto:hello@reach.golf']].map(([label, href]) => (
+        {[['How it works','#how'],['Who it\'s for','#who'],['Submit a brief','#brief'],['hello@jamesleedesign.co.uk','mailto:hello@jamesleedesign.co.uk']].map(([label, href]) => (
           <a key={label} href={href} className="text-xs text-offwhite/25 tracking-wider hover:text-offwhite transition-colors">{label}</a>
         ))}
       </div>
