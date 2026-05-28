@@ -16,10 +16,10 @@ export default function Home() {
       <Hero />
       <Ticker />
       <WhatWeDo />
+      <BriefForm />
       <HowItWorks />
       <WhoItsFor />
       <WhyMicro />
-      <BriefForm />
       <Footer />
       <NextJsBadge />
     </>
