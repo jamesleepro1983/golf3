@@ -5,7 +5,7 @@ export default function WhatWeDo() {
         <span className="inline-block w-5 h-px bg-coral" />
         What we do
       </p>
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-24 items-center">
+      <div className="grid grid-cols-1 md:grid-cols-2 gap-10 items-center">
         <div>
           <h2 className="font-playfair font-black leading-tight tracking-tight" style={{ fontSize: 'clamp(2.2rem,4vw,3.8rem)' }}>
             Influencer matchmaking.<br />
